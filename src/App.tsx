@@ -1,24 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import NewUserForm from './components/NewUserForm';
 
-function App() {
+function App()
+{
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+
+  function handleTextChange(event: any)
+  {
+    setTitle(event.target.value);
+  }
+
+  function handleBodyChange(event: any)
+  {
+    setBody(event.target.value);
+  }
+
+  async function handleSubmit(event: any)
+  {
+    event.preventDefault();
+    const response = await fetch(
+      'https://jsonplaceholder.typicode.com/posts',
+      {
+        body: JSON.stringify({
+          title: title,
+          body: body,
+          userId: 1
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'POST'
+      }
+    );
+    console.log(response.json())
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NewUserForm
+        title={title}
+        body={body}
+        handleTextChange={handleTextChange}
+        handleBodyChange={handleBodyChange}
+        handleSubmit={(event: any) => handleSubmit(event)}
+      />
     </div>
   );
 }
