@@ -3,7 +3,7 @@ import './styles.css';
 
 type InputPropsType = {
     handleInputChange: (event: any) => void;
-    text: string;
+    text: string|undefined;
     id: string;
     name: string
 }

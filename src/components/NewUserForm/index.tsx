@@ -6,8 +6,8 @@ type NewUserFormPropsType = {
     handleSubmit: (event: any) => void;
     handleBodyChange: (event: any) => void;
     handleTextChange: (event: any) => void;
-    title: string;
-    body: string;
+    title: string|undefined;
+    body: string|undefined;
 }
 
 export default function NewUserForm({handleSubmit,handleBodyChange,handleTextChange,title, body}: NewUserFormPropsType)
@@ -23,7 +23,7 @@ export default function NewUserForm({handleSubmit,handleBodyChange,handleTextCha
                 <Input handleInputChange={handleBodyChange} text={body} id="body" name="body" />
             </div>
             <div className="buttonContainer">
-                <button type="submit">Register</button>
+                <button>Register</button>
             </div>
         </form>
     );

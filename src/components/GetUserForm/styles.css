@@ -1,0 +1,14 @@
+.labelText {
+  font-size: 25px;
+}
+
+.formFieldContainer {
+  margin-top: 20px;
+}
+
+.optionContainer {
+  height: 40px;
+  font-size: 20px;
+  margin: 10px;
+  text-align: center;
+}
