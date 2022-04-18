@@ -44,7 +44,6 @@ function App()
       {
         alert("failed user registration")
       }
-      console.log(response.status)
     }
     else alert('please enter title and body')
     

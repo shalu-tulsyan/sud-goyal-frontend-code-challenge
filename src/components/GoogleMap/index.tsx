@@ -14,7 +14,6 @@ type GoogleMapPropsType = {
 
 export default function GoogleMapComponent({locations}: GoogleMapPropsType)
 {
-    console.log(locations[0].location.lat)
     return (
         <div className="mapContainer">
             <LoadScript

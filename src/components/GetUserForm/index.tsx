@@ -31,13 +31,13 @@ export default function GetUserForm()
     const [users, setUsers] = useState<UserType[]>([]);
     const [selectedUser, setSelectedUser] = useState(0);
 
-    var locationArray = Array.from(users.map(user =>
+    var locationArray = Array.from(users.map((user, index) =>
     {
         return {
             name: user.address.suite.concat(user.address.street).concat(user.address.city),
             location: {
-                lat: Number(users[0].address.geo.lat),
-                lng: Number(users[0].address.geo.lng)
+                lat: Number(users[index].address.geo.lat),
+                lng: Number(users[index].address.geo.lng)
             }
         }
     }))
@@ -50,7 +50,6 @@ export default function GetUserForm()
     function handleSubmit(event: any)
     {
         event.preventDefault();
-        console.log(selectedUser)
         if (selectedUser === 0) alert("please select a user");
     }
 
